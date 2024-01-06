@@ -3,9 +3,9 @@ fetch("https://65929f4fbb129707198fe18e.mockapi.io/tinhpv10/students")
 .then(response => response.json())
 .then(data => {
   console.log(data);
-  const array = data;
+  let array = data;
 
-  const html = document.getElementById('table');
+  let html = document.getElementById('table');
 
   let child_html = `<table class="table">
     <thead>
