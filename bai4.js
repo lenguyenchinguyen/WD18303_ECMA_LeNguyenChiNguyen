@@ -4,9 +4,9 @@
   .then(response => response.json())
   .then(data => {
     console.log(data);
-    const array = data.data;
+    let array = data.data;
 
-    const html = document.getElementById('table');
+    let html = document.getElementById('table');
 
     let child_html = `<table class="table">
       <thead>
