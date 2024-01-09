@@ -3,9 +3,9 @@ fetch("https://65929f4fbb129707198fe18e.mockapi.io/tinhpv10/students")
 .then(response => response.json())
 .then(data => {
   console.log(data);
-  const array = data;
+  let array = data;
 
-  const html = document.getElementById('table');
+  let html = document.getElementById('table');
 
   let child_html = `<table class="table">
     <thead>
@@ -17,14 +17,14 @@ fetch("https://65929f4fbb129707198fe18e.mockapi.io/tinhpv10/students")
       </tr>
     </thead>`;
 
-  let index = 1; // Initialize counter for row numbers
+  let STT = 1; // Initialize counter for row numbers
 
   array.forEach(element => {
     console.log(element);
     child_html += `
       <tbody>
         <tr>
-          <td>${index++}</td> 
+          <td>${STT++}</td> 
           <td><img src="${element.avatar}" alt="${element.name}"></td>
           <td>${element.name}</td>
           <td>${element.createdAt}</td>
