@@ -20,7 +20,7 @@ async function getListProducts() {
         <td><img src='../image/${product.image}' width="100px"></td>
         <td>${product.price}</td>
         <td>${product.sale}</td>
-        <td>${categoryName}</td>
+        
         <td>${product.description}</td>
         <th>
           <div class="button-container">

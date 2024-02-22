@@ -81,7 +81,7 @@ function listProductCategories1 (id, targetElement) {
 
                  
                     <div class = "div_btn_buy">
-                        <button data-id = "${productData.id}" class= "btn_buy"><a href = "site/cart.html">Mua ngay </a></button>
+                        <button onclick="add (${productData.id} , '${productData.image}' , '${productData.name}' , '${productData.price}')" class= "btn_buy"><a href = "site/cart.html">Mua ngay </a></button>
                     </div>
                   </div>
               `;
@@ -115,7 +115,7 @@ function listProductCategories2 (id, targetElement) {
                     
                    
                     <div class = "div_btn_buy">
-                        <button data-id = "${productData.id}" class= "btn_buy">Mua ngay </button>
+                        <button data-id = "${productData.id}" class= "btn_buy"><a href = "site/cart.html">Mua ngay </a></button>
                     </div>
                   </div>
                 `;
@@ -128,24 +128,39 @@ listProductCategories1 (1, tiviHTMLElement);
 listProductCategories1 (2, tulanHTMLElement);
 
 
-document.addEventListener('click', async (e) => {
-  if (e.target.classList.contains('btn_buy')) {
-    const id = e.target.getAttribute('data-id');
-    console.log(id);
-    const product = await producService.getDataById(id);
-    console.log(product);
-    // kiem tra co cart co trong localstoge hay khong co thi lay ra khog co thi rong
-    let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
-    const index = cart.findIndex(productData => productData.id == product.id);
-    if (index == -1) {
-      product.qty = 1;
-      cart.push(product);
-    } else {
-      cart[index].qty += 1;
+function add (id , img , name , price) {
+  if (localStorage.getItem ('cart') == null) {
+    let prM = [
+      {
+        id: id ,
+        quantity: 1 ,
+        img: img ,
+        name: name ,
+        price: price
+      }
+    ]
+    localStorage.setItem ('cart' , JSON.stringify (prM))
+  } else {
+    let prM = {
+      id: id ,
+      quantity: 1 ,
+      img: img ,
+      name: name ,
+      price: price
     }
-    localStorage.setItem('cart', JSON.stringify(cart));
-    console.log(JSON.parse(localStorage.getItem('cart')));
+    let cart = JSON.parse (localStorage.getItem ('cart'))
+    let mBr = false
+    for (let i = 0 ; i < cart.length ; i++) {
+      if (cart [i].id == prM.id) {
+        mBr = true
+        cart [i].quantity += prM.quantity
+      }
+    }
+    if (mBr == false) {
+      cart.push (prM)
+    }
+    localStorage.setItem ('cart' , JSON.stringify (cart))
   }
-});
 
-
+  console.log (JSON.parse (localStorage.getItem ('cart')))
+}
