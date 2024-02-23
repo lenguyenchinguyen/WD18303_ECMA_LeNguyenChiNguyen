@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+    </header>
+    <main>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Loại</th>
+                        <th scope="col">Chức năng</th>
+                        <th scope="col">Chức năng</th>
+                    </tr>
+                </thead>
+                <tbody id="table">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <form action="" id="formProduct" onsubmit="event.preventDefault(); createProduct(this)">
+                        <div class="mb-3 form-group">Tên
+                            <label for=""></label>
+                            <input name="name" type="text" class="form-control">
+                        </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3 form-group">Giá
+                        <label for=""></label>
+                        <input name="price" type="number" class="form-control">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="mb-3 form-group">Giảm giá
+                        <label for=""></label>
+                        <input name="sale" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Thêm mới</button>
+            </form>
+        </div>
+        <div class="container">
+            <div class="col-lg-6">
+                <h5>Sửa sản phẩm</h5>
+                <form action="" id="formEditProduct" onsubmit="productEdit(id)">
+                    <div class="mb-3 form-group">
+                        <label for="">Tên SP</label>
+                        <input type="text" name="nameEdit" class="form-control">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="">Giá</label>
+                        <input type="number" name="priceEdit" class="form-control">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="">Giảm giá</label>
+                        <input type="text" name="saleEdit" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sửa sản phẩm</button>
+                </form>
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
